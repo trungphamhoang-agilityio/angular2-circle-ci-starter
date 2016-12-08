@@ -14,7 +14,7 @@ dependencies:
 
   pre:
     - sudo pip install docker-compose
-    - docker-compose up --build
+    - docker-compose build
   override:
     - echo "PRINT DOCKER COMPOSE VERSION"
     - docker-compose --version
@@ -22,6 +22,8 @@ dependencies:
 
 test:
   pre:
+    - docker ps -a
+    - docker images
 #    - docker-compose pull
     # - docker-compose up -d
 #    - docker-compose run npm install
