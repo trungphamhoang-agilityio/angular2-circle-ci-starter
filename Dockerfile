@@ -1,11 +1,11 @@
-FROM node:7.2.0
+FROM node:7.1
 
-MAINTAINER Tomasz Netczuk
+# Install yarn
+RUN set -x \
+    && curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update && apt-get install yarn
 
-RUN npm i -g yarn@0.17.10
-RUN npm cache clean
-RUN mkdir -p /root/.cache/yarn/
-RUN yarn --version
 
 # FROM node:6.6.0
 # RUN apt-get update
