@@ -19,4 +19,4 @@ ADD yarn.lock /workspace
 # RUN $HOME/.yarn/bin/yarn install
 RUN npm install
 
-VOLUME ["/workspace/node_modules"]
+# VOLUME ["/workspace/node_modules"]
