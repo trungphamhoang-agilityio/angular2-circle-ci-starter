@@ -35,4 +35,4 @@ test:
   override:
     # grunt runs our karma tests
     - docker-compose run angular2-yarn npm run lint
-    - docker push trungphamhoang/angular2-circle-ci-starter
+    # - docker push trungphamhoang/angular2-circle-ci-starter
