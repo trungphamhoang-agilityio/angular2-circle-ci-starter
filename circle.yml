@@ -3,8 +3,6 @@
 machine:
   pre:
     - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
-    - sudo pip install docker-compose
-    - docker-compose build
   services:
     - docker
 
@@ -14,18 +12,21 @@ dependencies:
     # - "~/docker-images"
     # - "~/docker"
 
-  # pre:
-    # - sudo pip install docker-compose
-    # - docker-compose build
+  pre:
+    - sudo pip install docker-compose
+    - docker-compose build
   override:
     - echo "PRINT DOCKER COMPOSE VERSION"
     - docker-compose --version
-    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS https://index.docker.io/v1/
+    - docker logout
+    - docker login -u $DOCKER_USER -p $DOCKER_PASS https://index.docker.io/v1/
     - echo "DOCKER INFOR LOGIN"
     - cat ~/.docker/config.json
 
 test:
   pre:
+    - echo "DOCKER VERSION"
+    - docker --version
     - docker ps -a
     - docker images
 #    - docker-compose pull
