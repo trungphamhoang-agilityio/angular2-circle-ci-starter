@@ -19,6 +19,8 @@ dependencies:
     - echo "PRINT DOCKER COMPOSE VERSION"
     - docker-compose --version
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+    - echo "DOCKER INFOR LOGIN"
+    - cat ~/.docker/config.json
 
 test:
   pre:
