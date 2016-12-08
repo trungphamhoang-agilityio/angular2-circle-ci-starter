@@ -1,8 +1,11 @@
-FROM mhart/alpine-node:6.9.1
-RUN apk add --no-cache wget ca-certificates \
-    && mkdir /opt \
-    && wget -qO- https://yarnpkg.com/latest.tar.gz | tar xz -C /opt \
-    && apk del wget ca-certificates
+FROM node:7.2.0
+
+MAINTAINER Tomasz Netczuk
+
+RUN npm i -g yarn@0.17.10
+RUN npm cache clean
+RUN mkdir -p /root/.cache/yarn/
+RUN yarn --version
 
 # FROM node:6.6.0
 # RUN apt-get update
