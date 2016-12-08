@@ -18,7 +18,7 @@ dependencies:
   override:
     - echo "PRINT DOCKER COMPOSE VERSION"
     - docker-compose --version
-    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS https://index.docker.io/v1/
     - echo "DOCKER INFOR LOGIN"
     - cat ~/.docker/config.json
 
