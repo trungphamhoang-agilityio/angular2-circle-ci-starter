@@ -1,5 +1,8 @@
 FROM node:7.1
 
+RUN apt-get update
+RUN apt-get install -y vim nano rubygems build-essential
+
 # Install yarn
 RUN set -x \
     && curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
