@@ -2,7 +2,7 @@ version: '2'
 services:
     angular2-yarn:
         build: .
-        image: trungphamhoang/angular2-circle-ci-starter:1.0
+        image: trungphamhoang/angular2-circle-ci-starter
         ports:
             - "3000:3000"
             - "9876:9876"
