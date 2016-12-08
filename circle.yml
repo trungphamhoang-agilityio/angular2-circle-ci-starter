@@ -7,10 +7,10 @@ machine:
     - docker
 
 dependencies:
-  cache_directories:
-    - "node_modules"
-    - "~/docker-images"
-    - "~/docker"
+  # cache_directories:
+    # - "node_modules"
+    # - "~/docker-images"
+    # - "~/docker"
 
   pre:
     - sudo pip install docker-compose
@@ -31,4 +31,4 @@ test:
   override:
     # grunt runs our karma tests
     - docker-compose run angular2-yarn npm run lint
-    - docker push trungphamhoang/angular2-circle-ci-starter
+    - docker push trungphamhoang/angular2-circle-ci-starter:1.0
