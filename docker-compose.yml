@@ -9,4 +9,4 @@ services:
         volumes:
             - .:/workspace
         working_dir: /workspace
-        command: npm run lint
+        # command: npm run lint

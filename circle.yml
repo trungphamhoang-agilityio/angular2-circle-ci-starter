@@ -1,0 +1,20 @@
+---
+
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+    - sudo pip install --upgrade docker-compose==1.9.0
+
+test:
+  pre:
+#    - docker-compose pull
+    # - docker-compose up -d
+#    - docker-compose run npm install
+    # - docker-compose run bower install --allow-root --config.interactive=false
+  override:
+    # grunt runs our karma tests
+    - docker-compose up
