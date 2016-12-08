@@ -7,7 +7,7 @@ machine:
 dependencies:
   override:
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-    - sudo pip install --upgrade docker-compose==1.9.0
+    - sudo pip install docker-compose
 
 test:
   pre:
