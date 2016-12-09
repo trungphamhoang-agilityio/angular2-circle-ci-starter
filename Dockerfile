@@ -25,15 +25,7 @@ RUN yarn --version
 
 # =====INSTAL GLOBAL YARN======
 # RUN yarn global add typescript@2.0.8 tslint@3.9.0 protractor@4.0.11 webdriver-manager@10.2.8 webpack@2.1.0-beta.25 webpack-dev-server@2.1.0-beta.0 karma-cli@1.0.1 karma-chrome-launcher@2.0.0 rimraf@2.5.2 phantomjs-prebuilt@2.1.13 angular-cli@1.0.0-beta.21 --exact
-RUN $HOME/.yarn/bin/yarn global add typescript@2.0.8 --exact
-RUN $HOME/.yarn/bin/yarn global add tslint@3.9.0 --exact
-RUN $HOME/.yarn/bin/yarn global add webpack@2.1.0-beta.25 --exact
-RUN $HOME/.yarn/bin/yarn global add webpack-dev-server@2.1.0-beta.0 --exact
-RUN $HOME/.yarn/bin/yarn global add karma-cli@1.0.1 --exact
-RUN $HOME/.yarn/bin/yarn global add karma-chrome-launcher@2.0.0 --exact
-RUN $HOME/.yarn/bin/yarn global add rimraf@2.5.2 --exact
-RUN $HOME/.yarn/bin/yarn global add phantomjs-prebuilt@2.1.13 --exact
-RUN $HOME/.yarn/bin/yarn global add angular-cli@1.0.0-beta.21 --exact
+RUN npm install -g typescript@2.0.8 tslint@3.9.0 webpack@2.1.0-beta.25 webpack-dev-server@2.1.0-beta.0 karma-cli@1.0.1 karma-chrome-launcher@2.0.0 rimraf@2.5.2 phantomjs-prebuilt@2.1.13 angular-cli@1.0.0-beta.21
 
 # =====INSTALL sass=====
 RUN gem install sass scss_lint
