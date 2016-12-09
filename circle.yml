@@ -37,7 +37,7 @@ test:
     - pwd
     - echo "Before"
     # - ls dist/
-    # - docker-compose run angular2-yarn npm run build
+    - docker-compose run angular2-yarn npm run build
     - echo "After"
-    # - ls dist/
-    # - docker push trungphamhoang/angular2-circle-ci-starter
+    - ls dist/
+    - docker push trungphamhoang/angular2-circle-ci-starter
