@@ -17,3 +17,5 @@ services:
         image: trungphamhoang/angular2-circle-ci-starter:circle-ci-1.0
         ports:
             - "80:80"
+            - "443:443"
+            - "3000:3000"
