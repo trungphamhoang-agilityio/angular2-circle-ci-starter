@@ -43,3 +43,4 @@ ADD yarn.lock /workspace
 RUN npm install
 
 # VOLUME ["/workspace/node_modules"]
+VOLUME ["/workspace/dist"]
