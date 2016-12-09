@@ -31,7 +31,7 @@ test:
     # - docker-compose run bower install --allow-root --config.interactive=false
   override:
     # grunt runs our karma tests
-    - docker-compose build
+    - docker-compose build angular2-yarn
     - docker-compose run angular2-yarn npm run lint
     - echo "Current directory"
     - pwd
@@ -40,4 +40,5 @@ test:
     - docker-compose run angular2-yarn npm run build
     - echo "After"
     - ls dist/
+    - docker-compose build nginx-build
     - docker push trungphamhoang/angular2-circle-ci-starter:circle-ci-1.0
