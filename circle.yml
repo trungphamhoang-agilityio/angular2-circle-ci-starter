@@ -1,46 +1,25 @@
 ---
 
 machine:
-  pre:
-    # - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
-  services:
-    - docker
+  environment:
+    YARN_VERSION: 0.17.10
+    PATH: "${PATH}:${HOME}/.yarn/bin"
 
 dependencies:
-  # cache_directories:
-    # - "node_modules"
-    # - "~/docker-images"
-    # - "~/docker"
-
   pre:
-    - pip install docker-compose
-    - docker-compose --version
-    - docker-compose build
+    - |
+      if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
+        echo "Download and install Yarn."
+        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+      else
+        echo "The correct version of Yarn is already installed."
+      fi
   override:
-    - echo "PRINT DOCKER COMPOSE VERSION"
-    - docker-compose --version
-    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-    - echo "DOCKER INFOR LOGIN"
-    - cat ~/.docker/config.json
+    - yarn install
+  cache_directories:
+    - ~/.yarn
+    - ~/.yarn-cache
 
 test:
-  pre:
-    - echo "DOCKER VERSION"
-    - docker --version
-    - docker ps -a
-    - docker images
-#    - docker-compose pull
-    # - docker-compose up -d
-#    - docker-compose run npm install
-    # - docker-compose run bower install --allow-root --config.interactive=false
   override:
-    # grunt runs our karma tests
-    - docker-compose run angular2-yarn npm run lint
-    - echo "Current directory"
-    - pwd
-    - echo "Before"
-    # - ls dist/
-    # - docker-compose run angular2-yarn npm run build
-    - echo "After"
-    # - ls dist/
-    - docker push trungphamhoang/angular2-circle-ci-starter
+    - yarn test
