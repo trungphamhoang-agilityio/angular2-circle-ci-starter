@@ -13,7 +13,7 @@ dependencies:
     # - "~/docker"
 
   pre:
-    - pip install docker-compose@1.10.0
+    - pip install docker-compose
     - docker-compose --version
     - docker-compose build
   override:
