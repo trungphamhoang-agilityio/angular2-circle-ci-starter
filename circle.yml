@@ -13,6 +13,8 @@ dependencies:
     # - "~/docker"
 
   pre:
+    - echo "PRINT YARN LOG ERROR"
+    - sudo sh -c "cat /root/.config/yarn/global/yarn-error.log"
     - sudo pip install docker-compose
     - docker-compose build
   override:
