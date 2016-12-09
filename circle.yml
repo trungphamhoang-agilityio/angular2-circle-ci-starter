@@ -13,7 +13,8 @@ dependencies:
     # - "~/docker"
 
   pre:
-    - sudo pip install docker-compose
+    - pip install docker-compose
+    - docker-compose --version
     - docker-compose build
   override:
     - echo "PRINT DOCKER COMPOSE VERSION"
