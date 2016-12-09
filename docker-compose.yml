@@ -1,14 +1,24 @@
 version: '2'
 services:
     angular2-yarn:
-        build: .
-        image: trungphamhoang/angular2-circle-ci-starter:circle-ci-1.0
-        ports:
-            - "3000:3000"
-            - "9876:9876"
-            - "49153:49153"
+        build:
+          context: .
+          dockerfile: Dockerfile
+        # image: trungphamhoang/angular2-circle-ci-starter:circle-ci-1.0
+        # ports:
+        #     - "3000:3000"
+        #     - "9876:9876"
+        #     - "49153:49153"
         volumes:
             - .:/workspace
             - ./dist:/workspace/dist
         working_dir: /workspace
         # command: npm run lint
+
+    nginx-build:
+        build:
+          context: .
+          dockerfile: Dockerfile.circleci
+        image: trungphamhoang/angular2-circle-ci-starter:circle-ci-1.0
+        ports:
+            - "3000:80"
