@@ -40,7 +40,7 @@ ADD package.json /workspace
 ADD yarn.lock /workspace
 
 # =====INSTALL NODE MODULES=======
-RUN $HOME/.yarn/bin/yarn install
+RUN npm install
 
 RUN echo 'Print node_modules2'
 RUN ls /tmp/node_modules
