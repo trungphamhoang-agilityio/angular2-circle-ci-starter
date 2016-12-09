@@ -30,8 +30,8 @@ RUN $HOME/.yarn/bin/yarn global add webpack@2.1.0-beta.25 --exact
 RUN $HOME/.yarn/bin/yarn global add webpack-dev-server@2.1.0-beta.0 --exact
 # RUN $HOME/.yarn/bin/yarn global add karma-cli@1.0.1 --exact
 # RUN $HOME/.yarn/bin/yarn global add karma-chrome-launcher@2.0.0 --exact
-RUN $HOME/.yarn/bin/yarn global add rimraf@2.5.2 --exact
-RUN $HOME/.yarn/bin/yarn global add phantomjs-prebuilt@2.1.13 --exact
+# RUN $HOME/.yarn/bin/yarn global add rimraf@2.5.2 --exact
+# RUN $HOME/.yarn/bin/yarn global add phantomjs-prebuilt@2.1.13 --exact
 RUN $HOME/.yarn/bin/yarn global add angular-cli@1.0.0-beta.21 --exact
 
 # =====INSTALL sass=====
