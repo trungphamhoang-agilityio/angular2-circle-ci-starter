@@ -1,26 +1,16 @@
 FROM node:7.2.0
 
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
 RUN apt-get update
-RUN apt-get install -y vim nano rubygems build-essential
+RUN apt-get install -y vim nano rubygems build-essential yarn
 
-WORKDIR /opt/app
-
-RUN pwd
-RUN wget https://yarnpkg.com/latest.tar.gz
-RUN mkdir -p /opt
-RUN ls /opt
-ADD latest.tar.gz /opt/
-RUN ls /opt
-RUN mv /opt/dist /opt/yarn
-ENV PATH "$PATH:/opt/yarn/bin"
-
-RUN echo 'Print node_modules1'
-RUN ls /tmp/node_modules
 
 # RUN npm i -g yarn@0.17.10
 # RUN npm cache clean
 # RUN mkdir -p /root/.cache/yarn/
-# RUN yarn --version
+RUN yarn --version
 
 # FROM node:6.6.0
 # RUN apt-get update
