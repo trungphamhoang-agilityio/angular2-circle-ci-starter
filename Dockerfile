@@ -42,7 +42,4 @@ ADD yarn.lock /workspace
 # =====INSTALL NODE MODULES=======
 RUN npm install
 
-RUN echo 'Print node_modules2'
-RUN ls /tmp/node_modules
-
 # VOLUME ["/workspace/node_modules"]
