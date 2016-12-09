@@ -21,7 +21,7 @@ RUN echo 'HOME PATH'
 RUN echo $HOME
 RUN ls $HOME/.yarn/bin/yarn
 RUN $HOME/.yarn/bin/yarn self-update
-RUN yarn --version
+RUN $HOME/.yarn/bin/yarn --version
 
 # =====INSTAL GLOBAL YARN======
 # RUN yarn global add typescript@2.0.8 tslint@3.9.0 protractor@4.0.11 webdriver-manager@10.2.8 webpack@2.1.0-beta.25 webpack-dev-server@2.1.0-beta.0 karma-cli@1.0.1 karma-chrome-launcher@2.0.0 rimraf@2.5.2 phantomjs-prebuilt@2.1.13 angular-cli@1.0.0-beta.21 --exact
