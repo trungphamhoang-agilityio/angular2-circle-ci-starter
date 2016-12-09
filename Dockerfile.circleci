@@ -1,4 +1,5 @@
 FROM nginx:latest
 RUN mkdir -p /usr/share/nginx/project
+RUN chmod 777 -R /usr/share/nginx/project
 COPY dist /usr/share/nginx/project
 COPY angular2-circleci.nginx.conf /etc/nginx/sites-enabled/angular2-circleci.nginx.conf
