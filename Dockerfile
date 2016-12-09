@@ -19,8 +19,6 @@ RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
 RUN echo 'HOME PATH'
 RUN echo $HOME
-RUN ls npm
-RUN npm self-update
 RUN $HOME/.yarn/bin/yarn --version
 
 # =====INSTAL GLOBAL YARN======
