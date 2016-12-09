@@ -2,7 +2,7 @@
 
 machine:
   pre:
-    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
+    # - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
   services:
     - docker
 
@@ -38,8 +38,8 @@ test:
     - echo "Current directory"
     - pwd
     - echo "Before"
-    - ls dist/
-    - docker-compose run angular2-yarn npm run build
+    # - ls dist/
+    # - docker-compose run angular2-yarn npm run build
     - echo "After"
-    - ls dist/
+    # - ls dist/
     - docker push trungphamhoang/angular2-circle-ci-starter
