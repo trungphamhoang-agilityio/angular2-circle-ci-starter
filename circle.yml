@@ -33,12 +33,22 @@ test:
     # grunt runs our karma tests
     - docker-compose build angular2-yarn
     - docker-compose run angular2-yarn npm run lint
-    - echo "Current directory"
-    - pwd
-    - echo "Before"
-    # - ls dist/
-    - docker-compose run angular2-yarn npm run build
-    - echo "After"
-    - ls dist/
-    - docker-compose build nginx-build
-    - docker push trungphamhoang/angular2-circle-ci-starter:circle-ci-1.0
+
+deployment:
+  staging:
+    branch: master
+    commands:
+      - echo "Deployment from branch $CIRCLE_BRANCH"
+      - pwd
+      - echo "Before"
+      # - ls dist/
+      - docker-compose run angular2-yarn npm run build
+      - echo "After"
+      - ls dist/
+      - docker-compose build nginx-build
+      - docker push trungphamhoang/angular2-circle-ci-starter:circle-ci-1.0
+
+
+
+
+
